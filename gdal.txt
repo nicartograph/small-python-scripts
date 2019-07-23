@@ -1,0 +1,12 @@
+>gdalwarp -overwrite -t_srs EPSG:3857 -r lanczos -of GTiff -co TILED=YES C:\Users\n.volgusheva\Documents\mapserver_test\ortho\SK-1964-30-70-A-3.tif C:\Users\n.volgusheva\Documents\mapserver_test\ortho\SK-1964-30-70-A-3_new.tif
+
+>gdaladdo -r lanczos C:\Users\n.volgusheva\Documents\mapserver_test\ortho\SK-1964-30-70-A-3_new.tif 2 4
+
+
+
+
+for %i in (*.tif) do gdalwarp -overwrite -t_srs EPSG:3857 -dstnodata 0 -r lanczos -of GTiff -co TILED=YES %i %~ni_new.tif
+for %i in (*_new.tif) do gdal_translate -co compress=LZW %i %~ni2.tif
+for %i in (*_new2.tif) do gdaladdo -r lanczos %i 2 4 8 16 32 64 128
+
+gdaltindex doq_index.shp *.tif
