@@ -1,6 +1,6 @@
->gdalwarp -overwrite -t_srs EPSG:3857 -r lanczos -of GTiff -co TILED=YES C:\Users\n.volgusheva\Documents\mapserver_test\ortho\SK-1964-30-70-A-3.tif C:\Users\n.volgusheva\Documents\mapserver_test\ortho\SK-1964-30-70-A-3_new.tif
+>gdalwarp -overwrite -t_srs EPSG:3857 -r lanczos -of GTiff -co TILED=YES your_tif your_new_tif
 
->gdaladdo -r lanczos C:\Users\n.volgusheva\Documents\mapserver_test\ortho\SK-1964-30-70-A-3_new.tif 2 4
+>gdaladdo -r lanczos your_new_tif 2 4
 
 
 
